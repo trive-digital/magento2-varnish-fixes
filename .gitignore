@@ -1,0 +1,11 @@
+.metadata
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.project
+.buildpath
+.idea/

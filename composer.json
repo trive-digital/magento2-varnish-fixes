@@ -1,0 +1,15 @@
+{
+  "name": "trive/varnish",
+  "type": "magento2-module",
+  "description": "Magento 2 Varnish Fixes Module",
+  "version": "1.0.0",
+  "license": "proprietary",
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Trive\\Varnish\\": ""
+    }
+  }
+}
