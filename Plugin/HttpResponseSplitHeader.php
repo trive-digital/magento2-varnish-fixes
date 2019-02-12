@@ -75,6 +75,12 @@ class HttpResponseSplitHeader
             $tagString = implode(',', $newTags);
             $subject->getHeaders()->addHeaderLine($name, $tagString);
 
+            // Add remaining tags to header or when they do not reach the limit at all
+            if (count($newTags) > 0) {
+                $tagString = implode(',', $newTags);
+                $subject->getHeaders()->addHeaderLine($name, $tagString);
+            }
+
             return $subject;
         }
 
