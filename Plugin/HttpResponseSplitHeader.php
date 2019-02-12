@@ -63,7 +63,7 @@ class HttpResponseSplitHeader
 
             $newTags = [];
             foreach ($tags as $tag) {
-                if ($headerLength + strlen($tag) > $this->requestSize - count($newTags) - 1) {
+                if ($headerLength + strlen($tag) > $this->requestSize - count($tags) - 1) {
                     $tagString = implode(',', $newTags);
                     $subject->getHeaders()->addHeaderLine($name, $tagString);
                     $newTags = [];
@@ -72,6 +72,8 @@ class HttpResponseSplitHeader
                 $headerLength += strlen($tag);
                 $newTags[] = $tag;
             }
+            $tagString = implode(',', $newTags);
+            $subject->getHeaders()->addHeaderLine($name, $tagString);
 
             // Add remaining tags to header or when they do not reach the limit at all
             if (count($newTags) > 0) {
